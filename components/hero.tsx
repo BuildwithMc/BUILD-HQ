@@ -56,7 +56,7 @@ export function Hero() {
 
               <div className="flex justify-center lg:justify-start space-x-4 md:space-x-6 animate-in fade-in duration-1000 delay-1200">
                 <a
-                  href="https://linkedin.com/in/mmerichukwu-anosike"
+                  href="https://linkedin.com/in/buildwithmc"
                   className="text-[#DBE2EF] hover:text-[#3F72AF] transition-all duration-300 hover:scale-125 hover:rotate-12"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -64,7 +64,7 @@ export function Hero() {
                   <Linkedin className="h-6 w-6 md:h-8 md:w-8" />
                 </a>
                 <a
-                  href="https://github.com/Roarnotes"
+                  href="https://github.com/buildwithmc"
                   className="text-[#DBE2EF] hover:text-[#3F72AF] transition-all duration-300 hover:scale-125 hover:rotate-12"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -91,7 +91,7 @@ export function Hero() {
               <div className="relative">
                 <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[500px] xl:h-[500px] rounded-full overflow-hidden shadow-2xl bg-gradient-to-br from-[#3F72AF] to-[#DBE2EF] hover:scale-105 transition-all duration-500 hover:rotate-2">
                   <img
-                    src="/images/https://github.com/BuildwithMc/BuildwithMc/Studio-Ghibli-(10).png"
+                    src="/images/profile-hero.png"
                     alt="Mmerichukwu Anosike - Buildwithmc"
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   />

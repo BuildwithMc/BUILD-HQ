@@ -89,9 +89,9 @@ export function Hero() {
             {/* Profile Image */}
             <div className="flex justify-center lg:justify-end animate-in slide-in-from-right duration-1000 delay-500">
               <div className="relative">
-                <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[500px] xl:h-[500px] rounded-2xl overflow-hidden shadow-2xl bg-gradient-to-br from-[#3F72AF] to-[#DBE2EF] hover:scale-105 transition-all duration-500 hover:rotate-2">
+                <div className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[500px] xl:h-[500px] rounded-full overflow-hidden shadow-2xl bg-gradient-to-br from-[#3F72AF] to-[#DBE2EF] hover:scale-105 transition-all duration-500 hover:rotate-2">
                   <img
-                    src="/images/studio-ghibli-hero.png"
+                    src="/images/https://github.com/BuildwithMc/BuildwithMc/Studio-Ghibli-(10).png"
                     alt="Mmerichukwu Anosike - Buildwithmc"
                     className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
                   />

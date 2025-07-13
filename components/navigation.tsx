@@ -22,14 +22,6 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const mainNavItems = [
-    { href: "/career", label: "Career", icon: Briefcase },
-    { href: "/youtube", label: "YouTube", icon: Youtube },
-    { href: "/#speaking", label: "Speaking", icon: Mic },
-    { href: "/#partners", label: "Partners", icon: Users },
-    { href: "/#contact", label: "Contact", icon: Mail },
-  ]
-
   const careerDropdownItems = [
     { href: "/#about", label: "About", icon: User },
     { href: "/career", label: "Career", icon: Briefcase },
@@ -37,17 +29,14 @@ export function Navigation() {
     { href: "/events", label: "Events", icon: Calendar },
   ]
 
-  const allNavItems = [
-    { href: "/", label: "Home", icon: Home },
-    { href: "/#about", label: "About", icon: User },
-    { href: "/career", label: "Career", icon: Briefcase },
-    { href: "/projects", label: "Projects", icon: Code },
-    { href: "/events", label: "Events", icon: Calendar },
-    { href: "/#speaking", label: "Speaking", icon: Mic },
+  const mainNavItems = [
     { href: "/youtube", label: "YouTube", icon: Youtube },
+    { href: "/#speaking", label: "Speaking", icon: Mic },
     { href: "/#partners", label: "Partners", icon: Users },
     { href: "/#contact", label: "Contact", icon: Mail },
   ]
+
+  const allNavItems = [{ href: "/", label: "Home", icon: Home }, ...careerDropdownItems, ...mainNavItems]
 
   const currentRoles = [
     {
@@ -95,25 +84,6 @@ export function Navigation() {
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center space-x-6">
-              {mainNavItems.map((item) => {
-                const IconComponent = item.icon
-                const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-300 hover:scale-105 hover:rotate-1 ${
-                      isActive
-                        ? "bg-[#3F72AF] text-white shadow-lg"
-                        : "text-muted-foreground hover:text-foreground hover:bg-[#3F72AF]/50"
-                    }`}
-                  >
-                    <IconComponent className="h-4 w-4" />
-                    <span>{item.label}</span>
-                  </Link>
-                )
-              })}
-
               {/* Career Dropdown */}
               <div
                 className="relative"
@@ -158,6 +128,26 @@ export function Navigation() {
                   </div>
                 )}
               </div>
+
+              {/* Other Main Nav Items */}
+              {mainNavItems.map((item) => {
+                const IconComponent = item.icon
+                const isActive = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href))
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={`flex items-center space-x-2 px-3 py-2 rounded-lg transition-all duration-300 hover:scale-105 hover:rotate-1 ${
+                      isActive
+                        ? "bg-[#3F72AF] text-white shadow-lg"
+                        : "text-muted-foreground hover:text-foreground hover:bg-[#3F72AF]/50"
+                    }`}
+                  >
+                    <IconComponent className="h-4 w-4" />
+                    <span>{item.label}</span>
+                  </Link>
+                )
+              })}
             </div>
 
             {/* Desktop Actions */}

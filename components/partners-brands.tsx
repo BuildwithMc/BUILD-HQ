@@ -1,8 +1,21 @@
+"use client"
+
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Handshake, Globe, Users, Zap } from "lucide-react"
 
 export function PartnersBrands() {
+  const partnerLogos = [
+    { name: "3MTT Nigeria", logo: "/images/partners/3mtt-nigeria.png" },
+    { name: "Switch Electric", logo: "/images/partners/switch-electric.png" },
+    { name: "Magnus Media", logo: "/images/partners/magnus-media.png" },
+    { name: "Café One", logo: "/images/partners/cafe-one.png" },
+    { name: "Enugu 3MTT", logo: "/images/partners/enugu-3mtt.png" },
+    { name: "Greenpill Nigeria", logo: "/images/partners/greenpill-nigeria.png" },
+    { name: "Enugu SME Center", logo: "/images/partners/enugu-sme.png" },
+    { name: "PizzaDAO", logo: "/images/partners/pizzadao.png" },
+  ]
+
   const partnerCategories = [
     {
       title: "Web3 & Blockchain Partners",
@@ -71,6 +84,43 @@ export function PartnersBrands() {
             sectors to drive innovation and community growth.
           </p>
 
+          {/* Partner Logos Carousel */}
+          <div className="mb-12 md:mb-16">
+            <h3 className="text-xl md:text-2xl font-semibold text-center text-[#112D4E] mb-6 md:mb-8">
+              Trusted Partners
+            </h3>
+            <div className="relative overflow-hidden">
+              <div className="flex animate-scroll space-x-8 md:space-x-12">
+                {/* First set of logos */}
+                {partnerLogos.map((partner, index) => (
+                  <div
+                    key={`first-${index}`}
+                    className="flex-shrink-0 w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 bg-white rounded-lg shadow-md flex items-center justify-center p-3 md:p-4 hover:scale-105 transition-transform duration-300"
+                  >
+                    <img
+                      src={partner.logo || "/placeholder.svg"}
+                      alt={partner.name}
+                      className="max-w-full max-h-full object-contain filter hover:brightness-110 transition-all duration-300"
+                    />
+                  </div>
+                ))}
+                {/* Duplicate set for seamless loop */}
+                {partnerLogos.map((partner, index) => (
+                  <div
+                    key={`second-${index}`}
+                    className="flex-shrink-0 w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40 bg-white rounded-lg shadow-md flex items-center justify-center p-3 md:p-4 hover:scale-105 transition-transform duration-300"
+                  >
+                    <img
+                      src={partner.logo || "/placeholder.svg"}
+                      alt={partner.name}
+                      className="max-w-full max-h-full object-contain filter hover:brightness-110 transition-all duration-300"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-12 md:mb-16">
             {partnerCategories.map((category, index) => {
               const IconComponent = category.icon
@@ -102,7 +152,7 @@ export function PartnersBrands() {
           </div>
 
           {/* Partnership Stats */}
-          <div className="grid md:grid-cols-4 gap-4 md:gap-6 mb-12 md:mb-16">
+          <div className="grid md:grid-cols-4 gap-4 md:gap-6">
             <Card className="text-center bg-white border-[#3F72AF]">
               <CardContent className="p-4 md:p-6">
                 <div className="text-2xl md:text-3xl font-bold text-[#3F72AF] mb-2">20+</div>
@@ -125,23 +175,6 @@ export function PartnersBrands() {
               <CardContent className="p-4 md:p-6">
                 <div className="text-2xl md:text-3xl font-bold text-[#3F72AF] mb-2">7+</div>
                 <div className="text-xs md:text-sm text-[#3F72AF]">Blockchain Protocols</div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Logo Placeholder Section */}
-          <div>
-            <h3 className="text-xl md:text-2xl font-semibold text-center text-[#112D4E] mb-6 md:mb-8">Partner Logos</h3>
-            <Card className="border-2 border-dashed border-[#3F72AF] bg-white">
-              <CardContent className="p-6 md:p-12 text-center">
-                <div className="text-[#3F72AF] mb-4">
-                  <Globe className="h-12 w-12 md:h-16 md:w-16 mx-auto mb-4 opacity-50" />
-                </div>
-                <h4 className="text-base md:text-lg font-semibold text-[#112D4E] mb-2">Partner Logos Section</h4>
-                <p className="text-[#3F72AF]">
-                  This section is ready for you to add partner and brand logos. The layout will automatically adjust to
-                  showcase your partnerships professionally.
-                </p>
               </CardContent>
             </Card>
           </div>

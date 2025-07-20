@@ -6,12 +6,20 @@ import { Menu, X, User, Briefcase, Calendar, Users, Mail, Home, Mic, Code, Youtu
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { useTheme } from "next-themes"
+import Image from "next/image"
 
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isCareerDropdownOpen, setIsCareerDropdownOpen] = useState(false)
   const pathname = usePathname()
+  const { theme, resolvedTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,6 +69,12 @@ export function Navigation() {
     },
   ]
 
+  // Determine which logo to use based on theme
+  const logoSrc =
+    mounted && (resolvedTheme === "dark" || theme === "dark")
+      ? "/images/buildwithmc-white.png"
+      : "/images/buildwithmc-blue.png"
+
   return (
     <>
       {/* Desktop Navigation */}
@@ -72,12 +86,24 @@ export function Navigation() {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2 hover:scale-105 transition-transform duration-300">
-              <div className="w-8 h-8 md:w-10 md:h-10 bg-[#3F72AF] rounded-lg flex items-center justify-center hover:rotate-12 transition-transform duration-300">
-                <span className="text-white font-bold text-sm md:text-base">MC</span>
+            <Link href="/" className="flex items-center space-x-3 hover:scale-105 transition-transform duration-300">
+              <div className="relative w-32 h-8 md:w-40 md:h-10 hover:rotate-1 transition-transform duration-300">
+                {mounted ? (
+                  <Image
+                    src={logoSrc || "/placeholder.svg"}
+                    alt="Buildwithmc Logo"
+                    fill
+                    className="object-contain"
+                    priority
+                  />
+                ) : (
+                  // Fallback while theme is loading
+                  <div className="w-full h-full bg-[#3F72AF] rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-sm md:text-base">MC</span>
+                  </div>
+                )}
               </div>
-              <div className="hidden md:block">
-                <div className="text-foreground font-bold text-lg">Buildwithmc</div>
+              <div className="hidden lg:block">
                 <div className="text-muted-foreground text-xs">Builder & Organizer</div>
               </div>
             </Link>
@@ -182,6 +208,19 @@ export function Navigation() {
           <div className="fixed inset-0 bg-black/50 animate-in fade-in duration-200" onClick={() => setIsOpen(false)} />
           <div className="fixed top-0 right-0 h-full w-80 bg-background shadow-xl border-l border-border animate-in slide-in-from-right duration-300">
             <div className="p-6 pt-20">
+              {/* Mobile Logo */}
+              <div className="mb-6 flex justify-center">
+                <div className="relative w-36 h-9">
+                  {mounted ? (
+                    <Image src={logoSrc || "/placeholder.svg"} alt="Buildwithmc Logo" fill className="object-contain" />
+                  ) : (
+                    <div className="w-full h-full bg-[#3F72AF] rounded-lg flex items-center justify-center">
+                      <span className="text-white font-bold">MC</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+
               {/* Current Roles */}
               <div className="mb-8">
                 <h3 className="text-foreground font-semibold mb-4">Current Roles</h3>

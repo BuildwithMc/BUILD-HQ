@@ -17,6 +17,7 @@ export function Footer() {
       { href: "/#contact", label: "Contact" },
       { href: "mailto:mc@buildwithmc.com", label: "Email" },
       { href: "tel:+2348106212763", label: "Phone" },
+      { href: "https://drive.google.com/drive/folders/112uyIAMIy1s-9Lady0mKob0uEfp_xV2J?usp=sharing", label: "Brand Logos" },
     ],
   }
 
@@ -128,7 +129,7 @@ export function Footer() {
 
             {/* Copyright */}
             <div className="flex items-center text-sm text-muted-foreground">
-              <span>© {currentYear} Buildwithmc. Coded with</span>
+              <span>© {currentYear} Buildwithmc. Vibe Coded with</span>
               <Heart className="h-4 w-4 mx-1 text-red-500 fill-current" />
               <span>by MC</span>
             </div>
